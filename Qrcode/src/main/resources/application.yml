@@ -1,0 +1,7 @@
+server:
+  port: 8081
+# 设置保存二维码的目录
+qrcode:
+  saveDir: D:\\githubBoot\\Function\\Qrcode
+  logoPath: D:\\githubBoot\\Function\\Qrcode\\logo.jpg
+  parseDir: D:\\githubBoot\\Function\\Qrcode
