@@ -103,5 +103,16 @@ public class EmojiManagerTest {
 		log.info("是否是表情{}", emoji);
 	}
 	
+	/**
+	 * 是否是表情
+	 */
+	@Test
+	public void containTest() {
+		// 😄
+		boolean emoji = EmojiManager.containsEmoji("\uD83D\uDE04 12341234213423");
+		log.info("是否包含表情{}", emoji);
+		emoji = EmojiManager.containsEmoji("\uD83D\uDE04 adddd");
+		log.info("是否包含表情{}", emoji);
+	}
 	
 }
