@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <META http-equiv=Content-Type content='text/html; charset=UTF-8'>
+    <title>个人信息档案</title>
+    <style type="text/css">
+        table.reference {
+            border-collapse: collapse;
+            width: 100%;
+            margin-bottom: 4px;
+            margin-top: 4px;
+        }
+
+        table.reference tr:nth-child(even) {
+            background-color: #fff;
+        }
+
+        table.reference tr:nth-child(odd) {
+            background-color: #f6f4f0;
+        }
+
+        table.reference td {
+            line-height: 2em;
+            min-width: 40px;
+            border: 1px solid #d4d4d4;
+            padding: 5px;
+            padding-top: 7px;
+            padding-bottom: 7px;
+            vertical-align: top;
+        }
+    </style>
+</head>
+<body>
+<table class="reference">
+    <tr>
+        <td></td>
+        <td colspan="2">
+                个人信息档案
+        </td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>姓名:</td>
+        <td> ${name} </td>
+        <td> 性别:</td>
+        <td> ${sex} </td>
+    </tr>
+    <tr>
+        <td>年龄:</td>
+        <td> ${age} </td>
+        <td> 居住地址:</td>
+        <td> ${address} </td>
+    </tr>
+    <tr>
+        <td>婚否:</td>
+        <td> ${marry} </td>
+    </tr>
+    <tr>
+        <td colspan="4">教育经历:</td>
+    </tr>
+    #if ($schoolList.size() > 0)
+        #foreach($element in  $schoolList)
+            <tr>
+                <td> 学校名称</td>
+                <td>${element.name}</td>
+
+                <td> 日期</td>
+                <td>${element.startDate} ~ ${element.endDate}</td>
+            </tr>
+        #end
+    #end
+    <tr>
+        <td colspan="4">个人综合评价:</td>
+    </tr>
+    <tr>
+        <td >评价:</td>
+        <td colspan="5"> ${evaluation} </td>
+    </tr>
+</table>
+
+</body>
+</html>
