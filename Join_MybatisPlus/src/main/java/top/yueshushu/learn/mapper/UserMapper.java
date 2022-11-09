@@ -1,6 +1,7 @@
 package top.yueshushu.learn.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import top.yueshushu.learn.dynamic.DbField;
 import top.yueshushu.learn.pojo.User;
@@ -17,8 +18,8 @@ import java.util.List;
  * @Version 1.0
  * @Since 1.0
  **/
-public interface UserMapper extends BaseMapper<User> {
-
+@Mapper
+public interface UserMapper extends MPJBaseMapper<User> {
     List<UserDo> findList(@Param("returnDbFields") List<DbField> returnDbFields, @Param("userReqVo") UserReqVo userReqVo);
 
 

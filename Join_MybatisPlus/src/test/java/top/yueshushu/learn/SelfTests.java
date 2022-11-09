@@ -1,12 +1,10 @@
 package top.yueshushu.learn;
 
+import com.baomidou.mybatisplus.core.toolkit.StringUtils;
 import lombok.extern.log4j.Log4j2;
-import org.junit.Test;
-import org.junit.platform.commons.util.StringUtils;
-import org.junit.runner.RunWith;
+import org.junit.jupiter.api.Test;
 import org.springframework.beans.BeanUtils;
 import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 import org.springframework.util.CollectionUtils;
 import top.yueshushu.learn.dynamic.SerializableFunctionUtil;
 import top.yueshushu.learn.pojo.Role;
@@ -22,15 +20,14 @@ import java.util.Map;
 import java.util.stream.Collectors;
 
 /**
- * 用途描述
+ * 自定义使用的
  *
  * @author yuejianli
  * @date 2022-09-05
  */
 @SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
 @Log4j2
-public class MoreTests {
+public class SelfTests {
 	@Resource
 	private UserService userService;
 	@Resource

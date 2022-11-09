@@ -18,5 +18,4 @@ public interface UserService extends IService<User> {
 
     List<UserResVo> findListByCondition(UserReqVo userReqVo);
 
-
 }

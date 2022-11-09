@@ -33,7 +33,7 @@ public class UserServiceImpl extends ServiceImpl<UserMapper, User> implements Us
 
     @Resource
     private ClassFieldHelper classFieldHelper;
-    @Resource
+    @Resource(name = "userMapper")
     private UserMapper userMapper;
 
     private List<DbField> generateDbFieldList(List<String> returnFields) {

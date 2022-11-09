@@ -1,6 +1,7 @@
 package top.yueshushu.learn.mapper;
 
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.github.yulichang.base.MPJBaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import top.yueshushu.learn.pojo.Role;
 
 /**
@@ -11,6 +12,7 @@ import top.yueshushu.learn.pojo.Role;
  * @Version 1.0
  * @Since 1.0
  **/
-public interface RoleMapper extends BaseMapper<Role> {
+@Mapper
+public interface RoleMapper extends MPJBaseMapper<Role> {
 
 }
