@@ -3,6 +3,7 @@ package top.yueshushu.learn.business.impl;
 import org.springframework.retry.RetryCallback;
 import org.springframework.retry.RetryContext;
 import org.springframework.retry.annotation.Backoff;
+import org.springframework.retry.annotation.CircuitBreaker;
 import org.springframework.retry.annotation.Recover;
 import org.springframework.retry.annotation.Retryable;
 import org.springframework.retry.support.RetryTemplate;
@@ -49,13 +50,13 @@ public class UserBusinessImpl implements UserBusiness {
 	 *
 	 * @Recover 表示重试一直失败，到了最大重试次数后调用
 	 */
-	
+
 	@Override
 	@Retryable(value = Exception.class, maxAttempts = 3, backoff = @Backoff(delay = 2000, multiplier = 2))
 	public void retry() throws Exception {
 		Random random = new Random(System.currentTimeMillis());
 		int nextNum = random.nextInt(10);
-		if (nextNum >= 3) {
+		if (nextNum >= 2) {
 			log.error(">>>> 运行时间是:{},超时失败", nextNum);
 			throw new Exception("运行超时");
 		} else {
@@ -74,7 +75,7 @@ public class UserBusinessImpl implements UserBusiness {
 		
 		Random random = new Random(System.currentTimeMillis());
 		int nextNum = random.nextInt(10);
-		if (nextNum >= 3) {
+		if (nextNum >= 1) {
 			log.error(">>>> 运行时间是:{},超时失败", nextNum);
 			throw new Exception("运行超时");
 		} else {
@@ -135,8 +136,14 @@ public class UserBusinessImpl implements UserBusiness {
 	 * 如果一直失败，则抛出异常。 这样，外部才可以捕获到
 	 */
 	@Recover
-	public void retryUtilException() throws Exception {
-		log.error(">>>>>重试一直失败");
-		throw new Exception("奶奶的，运行一直失败");
+	public void retryUtilException() throws Exception  {
+		log.error(">>>>>重试一直失败,执行一个兜底的操作");
+		throw new Exception("一直失败,但还是要努力噢");
 	}
+
+//	@CircuitBreaker(openTimeout = 10000, maxAttempts =  3,resetTimeout = 3000, value = Exception.class)
+//	public void circuit() throws Exception {
+//		log.info(">>> 不好了，触发熔断了");
+//		throw new Exception("触发了熔断异常");
+//	}
 }
