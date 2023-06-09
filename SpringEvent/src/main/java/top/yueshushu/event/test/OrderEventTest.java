@@ -9,6 +9,7 @@ import java.util.concurrent.TimeUnit;
 
 import javax.annotation.Resource;
 
+import org.springframework.test.context.junit4.SpringRunner;
 import top.yueshushu.event.build.OrderEventService;
 
 /**
@@ -18,7 +19,7 @@ import top.yueshushu.event.build.OrderEventService;
  * @date 2022-08-22
  */
 @SpringBootTest
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 public class OrderEventTest {
 	@Resource
 	private OrderEventService orderEventService;

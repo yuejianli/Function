@@ -25,6 +25,7 @@ public class MailListener implements ApplicationListener<MailMessageEvent> {
 		log.info(">>>>执行发送邮件事件监听的操作,{}", mailMessageEvent.getMessage());
 		try {
 			TimeUnit.SECONDS.sleep(4);
+			log.info(">>>>> 邮件发送成功");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
