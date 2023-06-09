@@ -60,7 +60,7 @@ public class ELTest {
 
     }
     /**
-     表达式处理
+     表达式错误处理
      */
     @Test
     public void threeTestError() {
@@ -154,7 +154,7 @@ public class ELTest {
         evaluationContext.setRootObject(beanExpressionContext);
         //添加属性访问器 从IOC容器中获取bean
         evaluationContext.addPropertyAccessor(new BeanExpressionContextAccessor());
-        System.out.println(expressionParser.parseExpression("#{iocUser.name}", new TemplateParserContext()).getValue(evaluationContext));
+        log.info("{}",expressionParser.parseExpression("#{iocUser.name}", new TemplateParserContext()).getValue(evaluationContext));
     }
 
 
